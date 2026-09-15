@@ -66,54 +66,45 @@ class Cercle:
 
     def intersection(self, autre: "Cercle") -> bool:
         distance = self.centre.distancePoint(autre.centre)
-
         return distance <= self.rayon + autre.rayon
 
     def appartient(self, point: Point) -> bool:
         distance = self.centre.distancePoint(point)
-
         return distance <= self.rayon
 
 
-    def main():
-        p1 = Point()
-        p2 = Point(3, 4)
+def main():
+    p1 = Point()
+    p2 = Point(3, 4)
 
-        print("Point 1 :", p1.x, p1.y)
-        print("Point 2 :", p2.x, p2.y)
+    print("Point 1 :", p1.x, p1.y)
+    print("Point 2 :", p2.x, p2.y)
 
-        print("Distance avec les coordonnées :", p1.distanceCoord(3, 4))
-        print("Distance entre les deux points :", p1.distancePoint(p2))
+    print("Distance avec les coordonnées :", p1.distanceCoord(3, 4))
+    print("Distance entre les deux points :", p1.distancePoint(p2))
 
-        # Test de la classe Cercle
+    cercle1 = Cercle(5)
 
-        cercle1 = Cercle(5)
+    print("\nCercle 1")
+    print("Centre :", cercle1.centre.x, cercle1.centre.y)
+    print("Rayon :", cercle1.rayon)
+    print("Diamètre :", cercle1.diametre())
+    print("Périmètre :", cercle1.perimetre())
+    print("Surface :", cercle1.surface())
 
-        print("\nCercle 1")
-        print("Centre :", cercle1.centre.x, cercle1.centre.y)
-        print("Rayon :", cercle1.rayon)
-        print("Diamètre :", cercle1.diametre())
-        print("Périmètre :", cercle1.perimetre())
-        print("Surface :", cercle1.surface())
+    centre2 = Point(3, 4)
+    cercle2 = Cercle(2, centre2)
 
-        # Cercle avec un centre particulier
+    print("\nCercle 2")
+    print("Centre :", cercle2.centre.x, cercle2.centre.y)
+    print("Rayon :", cercle2.rayon)
 
-        centre2 = Point(3, 4)
-        cercle2 = Cercle(2, centre2)
+    print("\nIntersection entre les deux cercles :", cercle1.intersection(cercle2))
 
-        print("\nCercle 2")
-        print("Centre :", cercle2.centre.x, cercle2.centre.y)
-        print("Rayon :", cercle2.rayon)
+    p3 = Point(3, 0)
 
-        # Test intersection
-
-        print("\nIntersection entre les deux cercles :", cercle1.intersection(cercle2))
-
-        # Test appartenance d'un point au cercle
-
-        p3 = Point(3, 0)
-
-        print("Le point (3, 0) appartient au cercle 1 :", cercle1.appartient(p3))
+    print("Le point (3, 0) appartient au cercle 1 :", cercle1.appartient(p3))
 
 
-
+if __name__ == "__main__":
+    main()
